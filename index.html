@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excellent Export</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Excellent Export</h1>
+        <table id="datatable" class="table">
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>Scott</td>
+                <td>Boston</td>
+                <td>USA</td>
+            </tr>
+            <tr>
+                <td>Adam</td>
+                <td>Mexico</td>
+                <td>Central USA</td>
+            </tr>
+            <tr>
+                <td>Tuan</td>
+                <td>Hanoi</td>
+                <td>Vietnam</td>
+            </tr>
+        </table>
+        <a class="btn btn-primary"
+            download="somedata.xls" 
+            href="#" 
+            onclick="return ExcellentExport.excel(this, 'datatable', 'Users');"
+        >Export to Excel</a> &nbsp;
+        <a  class="btn btn-primary"
+            download="somedata.csv" 
+            href="#" 
+            onclick="return ExcellentExport.csv(this, 'datatable');"
+        >Export to CSV</a> &nbsp;
+        <!-- new API, xlsx -->
+        <a  class="btn btn-primary"
+            download="somedata.xlsx" 
+            href="#" 
+            onclick="return ExcellentExport.convert({ anchor: this, filename: 'user-list', format: 'xlsx'},
+                                                   [{name: 'user-info', from: {table: 'datatable'}}]);">
+            Export to Excel 2007
+        
+        </a>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js"></script>
+</body>
+</html>
